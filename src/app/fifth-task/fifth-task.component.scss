@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+
+  .switcher-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+
+    .switcher__icon {
+      &>svg {
+        width: 1.33rem;
+      }
+    }
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
