@@ -1,6 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { StoreModule } from '@ngrx/store';
+import { conversationReducer } from './sixth-task/conversation.reducer';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -34,6 +37,8 @@ import { FirstAndSecondTaskComponent } from './first-and-second-task/first-and-s
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+
+    StoreModule.forRoot({ conversations: conversationReducer }),
 
     MatMenuModule,
     MatCardModule,

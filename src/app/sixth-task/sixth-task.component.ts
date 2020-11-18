@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { IConversationState } from './conversation.state';
+import { AddConversation, DeleteConversation } from './conversation.action';
+import { getConversations, getConversationById } from './conversation.selector';
 
 @Component({
   selector: 'app-sixth-task',
@@ -7,14 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SixthTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly store: Store<IConversationState>) {
+    this.store.pipe(select(getConversations())).subscribe(console.log);
+  }
 
   ngOnInit(): void {
+    this.store.dispatch(AddConversation({ item: { id: 1, messages: ['Hello'] } }));
+    this.store.dispatch(AddConversation({ item: { id: 2, messages: ['World', '!'] } }));
+    this.store.dispatch(DeleteConversation({ id: 1 }));
   }
 
 }
-
-/*
-#6: Writing a sample code using a state management. That has Conversation and Message
-models. One Conversation can contain many messages
-*/
